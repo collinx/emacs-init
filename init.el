@@ -8,6 +8,7 @@
 
 ;;; Code:
 
+
 (when (version< emacs-version "25")
   (error "Unsupported Emacs Version! Please upgrade to a newer Emacs.  Emacs installation instructions: https://www.gnu.org/software/emacs/download.html"))
 
@@ -80,7 +81,7 @@ Also contains along with versions and other config.")
 ;;; overshadowing some in-built libraries or when you expect a package
 ;;; to already be loaded in order to fix system paths (*cough*
 ;;; `exec-path-from-shell' *cough*)
-
+(setq inhibit-startup-screen t)
 (setq el-get-sources
       (append
 
@@ -249,3 +250,4 @@ Also contains along with versions and other config.")
 
 (provide 'init)
 ;;; init.el ends here
+(global-set-key (kbd "M-s") 'paredit-splice-sexp)
