@@ -1,24 +1,7 @@
-;;; init.el --- Make Emacs useful!
-;;; Author: Vedang Manerikar
-;;; Created on: 10 Jul 2016
-;;; Commentary:
+;;; Code
 
-;; This file is a bare minimum configuration file to enable working
-;; with Emacs for Helpshift newcomers.
-
-;;; Code:
-
-
-(when (version< emacs-version "25")
-  (error "Unsupported Emacs Version! Please upgrade to a newer Emacs.  Emacs installation instructions: https://www.gnu.org/software/emacs/download.html"))
-
-(defvar emacs-up--version "v3.1.0"
-  "The current version of the Emacs Up Starter Kit.")
-
-(defun emacs-up-version ()
-  "Return the current version of the Emacs Up Starter Kit."
-  (interactive)
-  (message "Emacs Up %s" emacs-up--version))
+;; Show Buffer instead of startup screen
+(setq inhibit-startup-screen t)
 
 ;; Set a directory for temporary/state related files.
 (defvar dotfiles-dirname
@@ -81,7 +64,6 @@ Also contains along with versions and other config.")
 ;;; overshadowing some in-built libraries or when you expect a package
 ;;; to already be loaded in order to fix system paths (*cough*
 ;;; `exec-path-from-shell' *cough*)
-(setq inhibit-startup-screen t)
 (setq el-get-sources
       (append
 
@@ -139,7 +121,7 @@ Also contains along with versions and other config.")
                                     projectile-cache-file (concat tempfiles-dirname "projectile.cache")
                                     projectile-known-projects-file (concat tempfiles-dirname "projectile-bookmarks.eld")
                                     projectile-mode-line '(:eval (if (file-remote-p default-directory)
-                                                                     " "
+nn                                                                     " "
                                                                    (format " Ptl[%s]"
                                                                            (projectile-project-name)))))
                               ;; I want to use <C-x c p> for helm-projectile
